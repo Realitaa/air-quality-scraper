@@ -79,7 +79,10 @@ def main():
 
     df.sort_values("timez", inplace=True)
 
-    output_file = f"output/air_pollution_history_{LAT}_{LON}.csv"
+    output_dir = "output"
+    os.makedirs(output_dir, exist_ok=True)
+
+    output_file = f"{output_dir}/air_pollution_history_{LAT}_{LON}.csv"
     df.to_csv(output_file, index=False)
 
     print(f"Saved {len(df)} rows to {output_file}")
